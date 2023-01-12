@@ -41,19 +41,14 @@ export default function App() {
           <h1>
             Phonebook
           </h1>
-          <ContactForm
-            // onSubmit={addContact}
+          <ContactForm        
           />     
           <h2>
             Contacts
           </h2> 
-          <ContactList
-            // contacts={getFilterOnContact()}
-            // onDelete={deleteContact}
+          <ContactList         
           />
-          <Filter
-            // value={filter}
-            // onChange={e => setFilter(e.target.value)}
+          <Filter          
           />     
         </Wrap>
         <ToastContainer autoClose={2000} />   

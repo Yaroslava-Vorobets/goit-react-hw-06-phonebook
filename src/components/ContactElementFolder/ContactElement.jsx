@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { ListEl, Text, TextEl, Button } from './ContactElement.Styled';
 import {useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/ContactSlise';
+
   
 const ContactElement = ({ id, name, number }) => {
 const dispatch = useDispatch();

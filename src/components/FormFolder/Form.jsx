@@ -5,7 +5,7 @@ import {Form, Label, Input,  Button, } from './Form.Styled';
 import { addContact } from 'redux/ContactSlise';
 import { getContact } from 'redux/selectors';
 import { toast } from 'react-toast';
-import { nanoid } from 'nanoid';
+
 
 
 export default function ContactForm () {  
@@ -13,6 +13,7 @@ export default function ContactForm () {
     const [number, setNumber] = useState('');
     const contacts = useSelector(getContact);
     const dispatch = useDispatch();
+    console.log(contacts)
    
 
   const  handleChange = e => {
@@ -26,16 +27,16 @@ export default function ContactForm () {
                 setNumber(value);
                 break;            
             default:
-                return;
+                break;   
        }      
     }        
   
  
   const  handleSubmit = e => {            
       e.preventDefault();
-      const contactName = contacts.some(
+      const contactName = contacts.find(
           contact => contact.name.toLowerCase() === name.toLowerCase());
-           console.log( contactName)
+           console.log(contactName)
       
     const contactNumber = contacts.some(contact => contact.number === number);
        const form = e.target;
@@ -43,7 +44,7 @@ export default function ContactForm () {
       toast(`${contactName} is alredy in contacts`);
       return;
     } else {
-        dispatch(addContact(contactName, contactNumber, { id: nanoid()}));
+        dispatch(addContact(contactName, contactNumber));
       }     
         form.reset();     
     } 
