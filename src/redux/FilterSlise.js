@@ -11,5 +11,5 @@ import { createSlice } from '@reduxjs/toolkit';
     }
 })
 
-export const { setStatusFilter } = FilterSlise.actions;
+export const { statusFilter } = FilterSlise.actions;
 export const filtersReducer = FilterSlise.reducer;

@@ -27,26 +27,26 @@ export default function ContactForm () {
                 setNumber(value);
                 break;            
             default:
-                break;   
+                return;   
        }      
-    }        
-  
+    } 
+   
  
   const  handleSubmit = e => {            
       e.preventDefault();
-      const contactName = contacts.find(
-          contact => contact.name.toLowerCase() === name.toLowerCase());
-           console.log(contactName)
-      
-    const contactNumber = contacts.some(contact => contact.number === number);
-       const form = e.target;
-        if (contactName) {
-      toast(`${contactName} is alredy in contacts`);
+      if (contacts.find(contact => contact.name.toLowerCase() === name.toLowerCase())) {
+         toast(`${name} is alredy in contacts`);
       return;
-    } else {
-        dispatch(addContact(contactName, contactNumber));
-      }     
-        form.reset();     
+      }
+       if (contacts.find(contact => contact.number === number)) {
+         toast(`${number} is alredy in contacts`);
+      return;
+    }
+ 
+    dispatch(addContact(name, number))
+    setName('');
+    setNumber('');
+        
     } 
    
        

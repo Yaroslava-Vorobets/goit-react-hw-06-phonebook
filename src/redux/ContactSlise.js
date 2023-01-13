@@ -11,12 +11,13 @@ export const instialContacts = [
 
 
 export const ContactSlise = createSlice({
-    name: 'contacts',
-     initialState:{data: instialContacts},
-    reducers: {     
-    addContact(state, action) {           
-                state.data.push(action.payload)            
-            },               
+  name: 'contacts',
+  initialState: { data: instialContacts },
+  reducers: {
+    addContact: {
+       reducer(state, action) {
+      state.data.push(action.payload)
+},               
             prepare(name,number) {
              return {
                 payload: {
@@ -25,7 +26,8 @@ export const ContactSlise = createSlice({
                     number,
                  },
                 };
-            },
+      },
+}, 
           
     deleteContact (state, action) {
       const index = state.data.findIndex(

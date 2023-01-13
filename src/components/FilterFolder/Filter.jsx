@@ -1,21 +1,20 @@
 
 import { Input, Label } from './Filter.Styled';
-//  import { getFilter } from 'redux/selectors';
-import {setStatusFilter } from 'redux/FilterSlise';
+
+import {statusFilter} from 'redux/FilterSlise';
 import {useDispatch} from 'react-redux';
 
 const Filter = () => {
-//    const value = useSelector(getFilter)
+
     const dispatch = useDispatch();
     const query = e => e.target.value;
-
+console.log(query)
 
     return (
          <>
             <Label htmlFor="fname">Fined contacts by name</Label>       
             <Input
-                onChange={e => dispatch(setStatusFilter(query))}
-                // value={value}
+                onChange={e => dispatch(statusFilter(e.target.value))}           
                 type="text"
                 name="filter"
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
